@@ -1,0 +1,43 @@
+# Day 5 - Temporary User Setup with Expiry
+
+## Task
+Create a user named `ammar` with an account expiry date of `2027-03-28`.
+
+## Objective
+Practice creating a temporary Linux user account with an expiry date and verifying the result.
+
+## Commands Used
+```bash
+ssh banner@stapp03
+
+# Mistaken attempt
+sudo useradd -d 2027-03-28 ammar
+
+# Correct command
+sudo useradd -e 2027-03-28 ammar
+
+# Verify account expiry
+sudo chage -l ammar
+
+# Confirm user exists
+id ammar
+```
+
+## What the Commands Do
+- `ssh banner@stapp03` connects to App Server 3.
+- `useradd -d` sets a home directory, not an expiry date.
+- `useradd -e` sets the account expiry date.
+- `chage -l` displays password and account aging information.
+- `id ammar` confirms the account exists.
+
+## Verification
+`chage -l ammar` showed the account expiry date as `Mar 28, 2027`, confirming the user was created correctly.
+
+## What I Learned
+- How `-e` sets account expiry in `useradd`.
+- Why `-d` is not valid for expiry dates.
+- How `chage -l` is useful for verifying account aging settings.
+- How to correct a failed command by reading the error carefully.
+
+## Personal Notes
+This task was helpful because it showed the difference between a home directory flag and an expiry date flag. The error message made the issue clear, and the verification step confirmed the fix.

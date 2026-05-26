@@ -44,4 +44,4 @@ Each lab README includes:
 
 ## Notes
 
-The goal of this repository is to present Linux lab work as structured hands-on practice rather than raw course notes.
+The goal of this repository is to present the KodeKloud Linux lab work as structured hands-on practice as done by me rather than raw course notes.

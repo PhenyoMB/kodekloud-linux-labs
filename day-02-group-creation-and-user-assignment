@@ -1,0 +1,37 @@
+# Day 2 - Group-Based Access Control
+
+## Task
+Create the `nautilus_sftp_users` group on all App servers and add the user `rajesh` to that group. If the user does not exist, create it.
+
+## Objective
+Practice Linux group management, user creation, and access control across multiple servers.
+
+## Commands Used
+```bash
+# connect to each app server
+ssh tony@stapp01
+ssh tony@stapp02
+ssh tony@stapp03
+
+# create group if it does not exist
+sudo groupadd nautilus_sftp_users
+
+# create user if needed
+sudo useradd rajesh
+
+# add user to group
+sudo usermod -aG nautilus_sftp_users rajesh
+
+# verify
+id rajesh
+getent group nautilus_sftp_users
+```
+
+## What I Learned
+- How groups simplify access management in Linux
+- How to create and verify a user account
+- How to add an existing user to a supplementary group
+- Why group-based control is useful in multi-server environments
+
+## Personal Notes
+This task reinforced the importance of checking the existing system state before making changes. It also showed how Linux groups are used to keep access management consistent across servers.

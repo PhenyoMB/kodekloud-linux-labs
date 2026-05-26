@@ -20,7 +20,7 @@ sudo groupadd nautilus_sftp_users
 sudo useradd rajesh
 
 # add user to group
-sudo usermod -aG nautilus_sftp_users rajesh
+sudo useradd -G nautilus_sftp_users rajesh
 
 # verify
 id rajesh

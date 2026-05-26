@@ -1,0 +1,38 @@
+# Day 9 - Script Execution Permissions
+
+## Task
+Grant read and execute permissions to `/tmp/xfusioncorp.sh` on App Server 1 for all users.
+
+## Objective
+Practice modifying Linux file permissions to allow all users to execute a shell script.
+
+## Commands Used
+```bash
+ssh tony@stapp01
+
+# Check existing permissions
+ls -la /tmp/xfusioncorp.sh
+
+# Grant read and execute to all users
+sudo chmod a+rx /tmp/xfusioncorp.sh
+
+# Verify
+ls -la /tmp/xfusioncorp.sh
+```
+
+## What the Commands Do
+- `ls -la` shows the file permissions before and after the change.
+- `chmod a+rx` grants read and execute permissions to all users (owner, group, others).
+- `a` targets all users, `+` adds permissions, `r` is read, `x` is execute.
+
+## Verification
+Before: `----------` — no permissions for anyone.  
+After: `-r-xr-xr-x` — read and execute for all users confirmed.
+
+## What I Learned
+- How Linux file permissions are structured for owner, group, and others.
+- How `chmod a+rx` applies permissions to all user categories at once.
+- Why write permission is intentionally excluded from executable scripts.
+
+## Personal Notes
+This task highlighted that even root-owned files can have no permissions set by default. It also reinforced why scripts should be executable but not writable by all users.

@@ -1,0 +1,65 @@
+# Day 10 - File Permission Correction
+
+## Task
+Correct the ACL permissions on `/etc/hostname` on App Server 1:
+- Owner and group must be `root`.
+- Others must have read-only access.
+- User `kareem` must have no permissions.
+- User `rod` must have read-only access.
+
+## Objective
+Practice using Access Control Lists to apply per-user permissions beyond standard Linux `chmod` capabilities.
+
+## Commands Used
+```bash
+ssh tony@stapp01
+
+# Verify initial state
+ls -la /etc/hostname
+
+# Set owner and group to root
+sudo chown root:root /etc/hostname
+
+# Verify standard permissions are correct
+sudo chmod 644 /etc/hostname
+
+# Remove all permissions for kareem
+sudo setfacl -m u:kareem:--- /etc/hostname
+
+# Grant read-only to rod
+sudo setfacl -m u:rod:r-- /etc/hostname
+
+# Verify full ACL state
+getfacl /etc/hostname
+```
+
+## What the Commands Do
+- `chown root:root` sets the file owner and group to root.
+- `chmod 644` sets standard permissions: owner reads/writes, group and others read only.
+- `setfacl -m u:kareem:---` removes all permissions for a named user via ACL.
+- `setfacl -m u:rod:r--` grants read-only access to a named user via ACL.
+- `getfacl` displays the complete ACL including named user entries.
+
+## Verification
+```bash
+getfacl /etc/hostname
+```
+```text
+# owner: root
+# group: root
+user::rw-
+user:kareem:---
+user:rod:r--
+group::r--
+mask::r--
+other::r--
+```
+
+## What I Learned
+- How ACLs extend Linux permissions to support per-user access control.
+- Why `chmod` cannot target named users and `setfacl` is required instead.
+- How the `+` in `ls -la` output signals that ACL entries exist on a file.
+- How `getfacl` provides the full permission picture including named user entries.
+
+## Personal Notes
+This task showed the practical difference between standard permissions and ACLs. The key takeaway is that `chmod` only works with owner, group, and others as categories, while `setfacl` allows fine-grained control per user.

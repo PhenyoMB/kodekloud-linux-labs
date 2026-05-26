@@ -1,0 +1,46 @@
+# Day 8 - Data Backup for Developer
+
+## Task
+Create a compressed archive of the `/data/jim` directory and transfer it to `/home`.
+
+## Objective
+Practice creating compressed tar archives and moving files across system directories.
+
+## Commands Used
+```bash
+# Navigate to home directory for clean execution
+cd ~
+
+# Create compressed archive
+tar czvf jim.tar.gz /data/jim
+
+# Move archive to /home using full path
+sudo mv /data/jim/jim.tar.gz /home/
+
+# Verify
+ls -l /home/jim.tar.gz
+```
+
+## What the Commands Do
+- `tar` is the archive utility.
+- `c` creates a new archive.
+- `z` compresses it using gzip.
+- `v` prints verbose output showing files being archived.
+- `f` specifies the output filename.
+- `sudo mv` is required because `/home` is root-owned.
+- `ls -l` confirms the archive exists at the destination.
+
+## Troubleshooting
+Running `tar` from inside `/data/jim` caused a `file changed as we read it` warning because the archive was being written into the same directory being archived. The fix is to run `tar` from outside the target directory.
+
+## Verification
+Confirmed `jim.tar.gz` was present in `/home` after the move.
+
+## What I Learned
+- How `z` flag applies gzip compression in `tar`.
+- Why `/home` requires `sudo` to write into.
+- Why running `tar` from inside the target directory causes a file change warning.
+- How to use a full path in `mv` when the working directory is wrong.
+
+## Personal Notes
+This task reinforced that file extensions do not determine compression — the flags do. It also showed that working directory awareness matters when creating archives.

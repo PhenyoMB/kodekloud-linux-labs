@@ -21,6 +21,11 @@ kodekloud-linux-labs/
 
 - [Day 1 - Custom Apache User Setup](./day-01-custom-apache-user-setup)
 - [Day 2 - Group-Based Access Control](./day-02-group-creation-and-user-assignment)
+- [Day 3 - Linux User Setup with Non-Interactive Shell](./day-03-linux-user-setup-with-interactive-shell)
+- [Day 4 - Service User Creation without Home Directory](./day-04-server-use-creation-without-home-directory)
+- [Day 5 - Temporary User Setup with Expiry](./day-05-temporary-user-setup-with-expiry)
+- [Day 6 - Linux User Data Transfer](./day-06-linux-user-data-transfer)
+- [Day 7 - Secure Root SSH Access](./day-07-secure-root-ssh-access)
 
 ## Documentation Format
 

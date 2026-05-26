@@ -20,6 +20,7 @@ kodekloud-linux-labs/
 ## Labs
 
 - [Day 1 - Custom Apache User Setup](./day-01-custom-apache-user-setup)
+- [Day 2 - Group-Based Access Control](./day-02-group-creation-and-user-assignment)
 
 ## Documentation Format
 

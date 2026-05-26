@@ -13,8 +13,9 @@ Each lab is stored in its own folder and documented with a dedicated `README.md`
 ```text
 kodekloud-linux-labs/
 ├── README.md
-└── day-01-custom-apache-user-setup/
-    └── README.md
+└── linux-level-1
+    └── day-01-custom-apache-user-setup/
+        └──README.md
 ```
 
 ## Labs

@@ -1,0 +1,37 @@
+# Day 7 - Secure Root SSH Access
+
+## Task
+Disable direct root SSH login on all App servers in the Stratos Datacenter.
+
+## Objective
+Harden SSH access by preventing direct root login and verifying the service reload on each server.
+
+## Commands Used
+```bash
+ssh tony@stapp01
+sudo nano /etc/ssh/sshd_config
+sudo grep PermitRootLogin /etc/ssh/sshd_config
+sudo systemctl restart sshd
+sudo systemctl status sshd
+```
+
+Repeat the same process on `stapp02` and `stapp03`.
+
+## What the Commands Do
+- `ssh tony@stapp01` connects to App Server 1.
+- `sudo nano /etc/ssh/sshd_config` edits the SSH daemon configuration.
+- `sudo grep PermitRootLogin /etc/ssh/sshd_config` verifies the active setting.
+- `sudo systemctl restart sshd` reloads SSH with the new configuration.
+- `sudo systemctl status sshd` confirms the daemon is running.
+
+## Verification
+Confirmed `PermitRootLogin no` on each server and verified that `sshd` was active after restart.
+
+## What I Learned
+- How to harden SSH by disabling direct root login.
+- Why config changes require restarting `sshd`.
+- The difference between `ssh` and `sshd` service names on RHEL-based systems.
+- Why each server should be checked individually instead of assuming identical config.
+
+## Personal Notes
+This task reinforced the importance of verifying the configuration on every server, because not all systems started with the same SSH settings. It also showed that checking service status after a restart is a good habit for change validation.

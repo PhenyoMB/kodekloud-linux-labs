@@ -20,17 +20,17 @@ kodekloud-linux-labs/
 
 ## Labs
 
-- [Day 1 - Custom Apache User Setup](./day-01-custom-apache-user-setup)
-- [Day 2 - Group-Based Access Control](./day-02-group-creation-and-user-assignment)
-- [Day 3 - Linux User Setup with Non-Interactive Shell](./day-03-linux-user-setup-with-interactive-shell)
-- [Day 4 - Service User Creation without Home Directory](./day-04-server-use-creation-without-home-directory)
-- [Day 5 - Temporary User Setup with Expiry](./day-05-temporary-user-setup-with-expiry)
-- [Day 6 - Linux User Data Transfer](./day-06-linux-user-data-transfer)
-- [Day 7 - Secure Root SSH Access](./day-07-secure-root-ssh-access)
-- [Day 8 - Data Backup For Developer](./day-08-data-backup-for-developer)
-- [Day 9 - Script Execution Permissions](./day-09-script-execution-permissions)
-- [Day 10 - File Permission Correction](./day-10-file-permission-correction)
-- [Day 11 - String Replacement](./day-11-string-replacement)
+- [Day 1 - Custom Apache User Setup](./linux-level-01/day-01-custom-apache-user-setup)
+- [Day 2 - Group-Based Access Control](./linux-level-01/day-02-group-creation-and-user-assignment)
+- [Day 3 - Linux User Setup with Non-Interactive Shell](./linux-level-01/day-03-linux-user-setup-with-interactive-shell)
+- [Day 4 - Service User Creation without Home Directory](./linux-level-01/day-04-server-use-creation-without-home-directory)
+- [Day 5 - Temporary User Setup with Expiry](./linux-level-01day-05-temporary-user-setup-with-expiry)
+- [Day 6 - Linux User Data Transfer](./linux-level-01day-06-linux-user-data-transfer)
+- [Day 7 - Secure Root SSH Access](./linux-level-01day-07-secure-root-ssh-access)
+- [Day 8 - Data Backup For Developer](./linux-level-01day-08-data-backup-for-developer)
+- [Day 9 - Script Execution Permissions](./linux-level-01day-09-script-execution-permissions)
+- [Day 10 - File Permission Correction](./linux-level-01day-10-file-permission-correction)
+- [Day 11 - String Replacement](./linux-level-01day-11-string-replacement)
 
 
 ## Documentation Format

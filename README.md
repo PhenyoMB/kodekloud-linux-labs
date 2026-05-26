@@ -25,7 +25,11 @@ kodekloud-linux-labs/
 - [Day 4 - Service User Creation without Home Directory](./day-04-server-use-creation-without-home-directory)
 - [Day 5 - Temporary User Setup with Expiry](./day-05-temporary-user-setup-with-expiry)
 - [Day 6 - Linux User Data Transfer](./day-06-linux-user-data-transfer)
-- [Day 7 - Secure Root SSH Access](./day-07-secure-root-ssh-access)
+- [Day 8 - Secure Root SSH Access](./day-08-data-backup-for-developer)
+- [Day 9 - Secure Root SSH Access](./day-09-script-execution-permissions)
+- [Day 10 - Secure Root SSH Access](./day-10-file-permission-correction)
+- [Day 11 - Secure Root SSH Access](./day-11-string-replacement)
+
 
 ## Documentation Format
 

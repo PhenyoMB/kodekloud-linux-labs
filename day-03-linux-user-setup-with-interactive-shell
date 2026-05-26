@@ -1,0 +1,32 @@
+# Day 3 - Linux User Setup with Non-Interactive Shell
+
+## Task
+Create a user named `jim` on App Server 2 with a non-interactive shell.
+
+## Objective
+Practice creating a restricted Linux account for service or tool access.
+
+## Commands Used
+```bash
+ssh tony@stapp02
+sudo useradd -s /sbin/nologin jim
+grep jim /etc/passwd
+```
+
+## What the Commands Do
+- `ssh tony@stapp02` connects to App Server 2.
+- `sudo` runs the command with administrative privileges.
+- `useradd` creates the new user account.
+- `-s /sbin/nologin` sets the login shell to a non-interactive shell.
+- `grep jim /etc/passwd` verifies the account entry.
+
+## Verification
+Confirmed that `jim` was created with `/sbin/nologin` in `/etc/passwd`.
+
+## What I Learned
+- How to create a restricted user account in Linux.
+- Why service accounts should not always have interactive shells.
+- How to verify account settings using `/etc/passwd`.
+
+## Personal Notes
+This task helped reinforce the difference between a normal user account and a service-style account. It also showed how shell selection controls whether a user can log in interactively.

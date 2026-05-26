@@ -1,0 +1,45 @@
+# Day 11 - String Replacement
+
+## Task
+Replace all occurrences of the string `String` with `Sonar` in the XML file at `/root/nautilus.xml` on the jump host.
+
+## Objective
+Practice in-place text substitution using `sed` and verify changes using `grep`.
+
+## Commands Used
+```bash
+# Count occurrences before substitution
+sudo grep -c "String" /root/nautilus.xml
+
+# Apply substitution and save to file
+sudo sed -i 's/String/Sonar/g' /root/nautilus.xml
+
+# Confirm original string is gone
+sudo grep -c "String" /root/nautilus.xml
+
+# Confirm replacement string exists
+sudo grep -c "Sonar" /root/nautilus.xml
+```
+
+## What the Commands Do
+- `grep -c` counts the number of matching lines in a file.
+- `sed -i` edits the file in-place, saving changes directly.
+- `s/String/Sonar/g` substitutes every occurrence of `String` with `Sonar` on each line.
+- Without `-i`, `sed` only prints the result to the screen without modifying the file.
+- Without `/g`, `sed` replaces only the first match per line.
+
+## Verification
+| Check | Result |
+|---|---|
+| `grep -c "String"` before | 66 occurrences |
+| `grep -c "String"` after | 0 — all replaced |
+| `grep -c "Sonar"` after | 66 — confirmed |
+
+## What I Learned
+- How `sed -i` performs in-place file editing.
+- Why the `/g` flag is needed to replace all occurrences per line.
+- How to verify substitutions using `grep -c` before and after.
+- How filename typos cause "No such file or directory" errors.
+
+## Personal Notes
+This task reinforced the importance of a check-before, apply, verify-after workflow. It also showed that previewing `sed` output without `-i` first is a safe habit before committing changes to a file.

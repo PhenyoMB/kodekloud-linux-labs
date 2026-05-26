@@ -1,0 +1,45 @@
+# Day 4 - Linux User Creation Without Home Directory
+
+## Task
+Create a service user named `james` on App Server 2 without a home directory.
+
+## Objective
+Practice creating a minimal service account with no home directory using Linux user management tools.
+
+## Commands Used
+```bash
+ssh steve@stapp02
+
+# First attempt
+sudo useradd -M james
+
+# Verified but found /home/james still listed in /etc/passwd
+grep james /etc/passwd
+
+# Removed the user to recreate correctly
+sudo userdel james
+
+# Recreated the user without a home directory
+sudo useradd -M james
+
+# Final verification
+grep james /etc/passwd
+```
+
+## What the Commands Do
+- `ssh steve@stapp02` connects to App Server 2.
+- `sudo useradd -M james` creates the user with `-M` suppressing home directory creation.
+- `grep james /etc/passwd` reads the account entry to verify the configuration.
+- `sudo userdel james` removes the account so it can be recreated cleanly.
+
+## Verification
+Confirmed that `james` exists in `/etc/passwd` with no `/home/james` directory created on the filesystem.
+
+## What I Learned
+- How `-M` suppresses home directory creation when using `useradd`.
+- How to verify user configuration through `/etc/passwd`.
+- How to remove a user with `userdel` and recreate it cleanly.
+- Why service accounts typically do not need home directories.
+
+## Personal Notes
+This task was useful because the first attempt appeared to work but the verification step revealed the configuration was not fully correct. It reinforced the importance of always verifying output rather than assuming the command worked as intended.

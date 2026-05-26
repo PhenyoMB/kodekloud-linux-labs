@@ -1,0 +1,33 @@
+# Day 6 - Linux User Data Transfer
+
+## Task
+Locate all regular files owned by `kareem` within `/home/usersdata` on App Server 2 and copy them to `/official` while preserving the directory structure.
+
+## Objective
+Practice finding files by ownership and copying them safely without flattening the source folder structure.
+
+## Commands Used
+```bash
+ssh steve@stapp02
+
+find /home/usersdata -type f -user kareem -exec cp --parents {} /official \;
+```
+
+## What the Commands Do
+- `ssh steve@stapp02` connects to App Server 2.
+- `find /home/usersdata` searches the source directory tree.
+- `-type f` limits results to regular files only.
+- `-user kareem` filters files owned by `kareem`.
+- `-exec cp --parents {} /official \;` copies each file and preserves its parent path structure inside `/official`.
+
+## Verification
+Checked that the expected files were copied into `/official` with their directory paths preserved.
+
+## What I Learned
+- How to filter files by ownership using `find`.
+- How to avoid copying directories when only files are required.
+- How `cp --parents` preserves directory structure during copy operations.
+- Why structure-preserving copies matter in backups and data recovery.
+
+## Personal Notes
+This task showed how useful `find` is for operational work. It also reinforced that copying data safely is not just about moving files, but about preserving context and paths.

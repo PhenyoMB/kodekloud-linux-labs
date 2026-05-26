@@ -28,6 +28,7 @@ Each lab README includes:
 - Task summary
 - Objective
 - Commands used
+- Verification
 - What I learned
 - Personal notes
 

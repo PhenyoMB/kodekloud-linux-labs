@@ -1,0 +1,46 @@
+# Day 14 - Default UI Boot Configuration
+
+## Task
+Configure the system to boot into the graphical interface by default without rebooting immediately.
+
+## Objective
+Practice changing the default `systemd` boot target from command-line mode to graphical mode.
+
+## Commands Used
+```bash
+# Check current default target
+systemctl get-default
+
+# Set graphical mode as the default boot target
+sudo systemctl set-default graphical.target
+
+# Verify the change
+systemctl get-default
+```
+
+## What the Commands Do
+- `systemctl get-default` shows the system's current default boot target.
+- `sudo systemctl set-default graphical.target` changes the default boot target to graphical mode for future boots.
+- Running `systemctl get-default` again confirms the new default target.
+
+## Verification
+Confirmed that the default boot target was changed to:
+
+```bash
+graphical.target
+```
+
+## What I Learned
+- How `systemd` targets replace traditional Linux runlevels.
+- How to check the current default boot target with `systemctl get-default`.
+- How to set `graphical.target` as the default without rebooting immediately.
+- That changing the default target affects the next boot, not the current session.
+
+## Personal Notes
+This task helped reinforce the difference between changing the default boot behavior and changing the current running state. It also clarified that `graphical.target` is the `systemd` equivalent of the older GUI-oriented runlevel.
+
+## Key Notes
+- `graphical.target` is used for GUI mode.
+- `multi-user.target` is used for non-graphical multi-user mode.
+- `systemctl set-default` updates the default boot target through the `default.target` link.
+- If an immediate switch is needed without rebooting, `systemctl isolate` is a separate command and was not required for this task.

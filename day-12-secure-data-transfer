@@ -1,0 +1,31 @@
+# Day 12 - Secure Data Transfer
+
+## Task
+Transfer `/tmp/nautilus.txt.gpg` from the jump host to App Server 1 and place it in `/home/nfsshare/`.
+
+## Objective
+Practice secure file transfer over SSH using the appropriate transfer method for a single-file copy.
+
+## Commands Used
+```bash
+scp /tmp/nautilus.txt.gpg tony@stapp01:/home/nfsshare/
+ssh tony@stapp01
+ls -la /home/nfsshare/
+```
+
+## What the Commands Do
+- `scp` securely copies files over SSH.
+- `/tmp/nautilus.txt.gpg` is the source file on the jump host.
+- `tony@stapp01:/home/nfsshare/` is the destination on App Server 1.
+- `ls -la` verifies that the file was transferred successfully.
+
+## Verification
+Confirmed that `nautilus.txt.gpg` exists in `/home/nfsshare/` after transfer.
+
+## What I Learned
+- How to use `scp` for a secure one-time file copy.
+- When `scp` is a better fit than `rsync` or `sftp`.
+- How to verify a file transfer on the remote server.
+
+## Personal Notes
+This task reinforced that `scp` is the simplest option for moving a single file securely. For repeated syncs, `rsync` would be more efficient, while `sftp` would be better for interactive file browsing and manual transfers.

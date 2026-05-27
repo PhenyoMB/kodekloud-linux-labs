@@ -1,0 +1,54 @@
+# Day 13 - Restrict Cron Access
+
+## Task
+Restrict cron access on App Server 2 by allowing user `ammar` to use `crontab` and denying user `garrett`.
+
+## Objective
+Practice Linux cron access control using `/etc/cron.allow` and `/etc/cron.deny`.
+
+## Commands Used
+```bash
+ssh steve@stapp02
+
+# Check current cron access files
+cat /etc/cron.allow
+cat /etc/cron.deny
+
+# Create allow file if it does not exist
+sudo touch /etc/cron.allow
+
+# Edit allow and deny lists
+sudo nano /etc/cron.allow
+sudo nano /etc/cron.deny
+
+# Verify final contents
+cat /etc/cron.allow
+cat /etc/cron.deny
+```
+
+## What the Commands Do
+- `ssh steve@stapp02` connects to App Server 2.
+- `cat /etc/cron.allow` checks whether an allow-list already exists.
+- `cat /etc/cron.deny` checks whether a deny-list already exists.
+- `sudo touch /etc/cron.allow` creates the allow file if it is missing.
+- `sudo nano /etc/cron.allow` adds `ammar` to the allow-list.
+- `sudo nano /etc/cron.deny` adds `garrett` to the deny-list.
+- `cat` is used again to confirm the final file contents.
+
+## Verification
+- `/etc/cron.allow` contained `ammar`.
+- `/etc/cron.deny` contained `garrett`.
+
+## What I Learned
+- How cron access is controlled through `cron.allow` and `cron.deny`.
+- Why checking whether `cron.allow` exists matters before making changes.
+- How allow-lists and deny-lists affect user access differently.
+- How to verify file-based access control changes after editing.
+
+## Personal Notes
+This task reinforced that access control in Linux is often managed through simple configuration files rather than complex commands. It also showed the importance of checking the current state before editing, because the system behavior depends on which cron control files already exist.
+
+## Key Notes
+- If `/etc/cron.allow` exists, only users listed in it can use `crontab`.
+- If `/etc/cron.allow` does not exist, users listed in `/etc/cron.deny` are blocked while others are allowed.
+- If both files exist, `/etc/cron.allow` takes precedence.

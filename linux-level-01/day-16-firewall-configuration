@@ -1,0 +1,69 @@
+# Day 16 - Firewall Configuration
+
+## Task
+Install and enable `firewalld`, set the default zone to `public`, and allow incoming TCP connections on port `6300`.
+
+## Objective
+Practice basic host firewall configuration using `firewalld` for service exposure and zone-based access control.
+
+## Commands Used
+```bash
+# Install firewalld
+sudo yum install firewalld
+
+# Enable and start the service
+sudo systemctl enable firewalld
+sudo systemctl start firewalld
+
+# Check firewall status
+sudo firewall-cmd --state
+
+# Set default zone to public
+sudo firewall-cmd --set-default-zone=public
+
+# Open port 6300/tcp permanently
+sudo firewall-cmd --zone=public --add-port=6300/tcp --permanent
+
+# Reload to apply permanent changes
+sudo firewall-cmd --reload
+
+# Verify open ports
+sudo firewall-cmd --zone=public --list-ports
+
+# Verify full zone configuration
+sudo firewall-cmd --zone=public --list-all
+
+# Verify default zone
+sudo firewall-cmd --get-default-zone
+```
+
+## What the Commands Do
+- `yum install firewalld` installs the firewall service.
+- `systemctl enable firewalld` ensures the service starts automatically on boot.
+- `systemctl start firewalld` starts the firewall service immediately.
+- `firewall-cmd --state` checks whether `firewalld` is running.
+- `firewall-cmd --set-default-zone=public` sets the default zone to `public`.
+- `firewall-cmd --zone=public --add-port=6300/tcp --permanent` adds a persistent allow rule for TCP port `6300`.
+- `firewall-cmd --reload` loads permanent rules into the active firewall configuration.
+- `firewall-cmd --list-ports`, `--list-all`, and `--get-default-zone` verify the final state.
+
+## Verification
+Confirmed the following:
+- `firewalld` was installed and running.
+- Default zone was set to `public`.
+- Port `6300/tcp` was listed as allowed in the `public` zone.
+
+## What I Learned
+- How to install, enable, and start `firewalld`.
+- The difference between runtime and permanent firewall rules.
+- Why `--reload` is needed after adding permanent rules.
+- How zones are used to group firewall rules and trust levels.
+
+## Personal Notes
+This task reinforced that firewall changes should always be verified after configuration. It also highlighted that small typos, such as using an invalid zone name, are easy to catch if commands are checked step by step.
+
+## Key Notes
+- Adding a port with `--permanent` saves the rule so it survives reboot and service restart.
+- Permanent `firewalld` changes need `firewall-cmd --reload` before they become active in the running firewall.
+- `firewall-cmd --state` is a standard way to confirm that `firewalld` is running.
+- `public` is a standard firewalld zone used for less-trusted networks and explicitly allowed services or ports. 

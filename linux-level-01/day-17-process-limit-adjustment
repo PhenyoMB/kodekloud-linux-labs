@@ -1,0 +1,59 @@
+# Day 17 - Process Limit Adjustment
+
+## Task
+Set process limits for the user `nfsuser` on App Server 1 by configuring:
+- soft `nproc` limit: `1027`
+- hard `nproc` limit: `2025`
+
+## Objective
+Practice configuring per-user process limits in Linux using `/etc/security/limits.conf`.
+
+## Commands Used
+```bash
+# Connect to the target server
+ssh tony@stapp01
+
+# Check the relevant configuration file
+sudo nano /etc/security/limits.conf
+
+# Add the required limits
+nfsuser soft nproc 1027
+nfsuser hard nproc 2025
+
+# Verify the entries
+sudo cat /etc/security/limits.conf | grep nfsuser
+
+# Apply changes for new SSH sessions
+sudo systemctl restart sshd
+```
+
+## What the Commands Do
+- `ssh tony@stapp01` connects to App Server 1.
+- `sudo nano /etc/security/limits.conf` opens the PAM limits configuration file for editing.
+- `nfsuser soft nproc 1027` sets the soft per-user process limit.
+- `nfsuser hard nproc 2025` sets the hard per-user process limit.
+- `grep nfsuser` confirms the new lines were added correctly.
+- `sudo systemctl restart sshd` helps ensure new SSH sessions pick up the updated limits.
+
+## Verification
+Confirmed that the following entries were present in `/etc/security/limits.conf`:
+
+```text
+nfsuser soft nproc 1027
+nfsuser hard nproc 2025
+```
+
+## What I Learned
+- How to configure per-user resource limits in `/etc/security/limits.conf`.
+- The difference between soft and hard limits.
+- That `nproc` controls the maximum number of processes available to a user.
+- How to verify saved configuration changes with `grep`.
+
+## Personal Notes
+This task helped clarify that `nfsuser` is a user account, not a system service. It also reinforced that Linux resource limits are often enforced through PAM session configuration rather than through service-specific settings.
+
+## Key Notes
+- `/etc/security/limits.conf` is used by `pam_limits` to apply resource limits to user sessions. 
+- `soft` limits are the default limits seen by the user and can be adjusted upward only to the hard limit.
+- `hard` limits are the maximum allowed limits and act as the upper boundary for soft limits. 
+- `nproc` defines the maximum number of processes a user can run. 

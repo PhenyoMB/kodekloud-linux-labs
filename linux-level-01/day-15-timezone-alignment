@@ -1,0 +1,54 @@
+# Day 15 - Timezone Alignment
+
+## Task
+Set the timezone on all Nautilus App servers to `America/Argentina/Tucuman`.
+
+## Objective
+Practice checking and updating Linux system timezones consistently across multiple servers.
+
+## Commands Used
+```bash
+# Check the current timezone
+timedatectl | grep 'Time zone'
+
+# Set the required timezone
+sudo timedatectl set-timezone America/Argentina/Tucuman
+
+# Verify the change
+timedatectl | grep 'Time zone'
+```
+
+Repeat the same process on:
+- `stapp01`
+- `stapp02`
+- `stapp03`
+
+## What the Commands Do
+- `timedatectl` displays the current date, time, and timezone settings.
+- `grep 'Time zone'` filters the output to show only the timezone line.
+- `sudo timedatectl set-timezone America/Argentina/Tucuman` updates the system timezone.
+- Running the verification command again confirms the change.
+
+## Verification
+All three servers were updated from `Etc/UTC` to `America/Argentina/Tucuman`.
+
+| Server | Initial Timezone | Final Timezone | Status |
+|---|---|---|---|
+| `stapp01` | `Etc/UTC` | `America/Argentina/Tucuman` | ✅ |
+| `stapp02` | `Etc/UTC` | `America/Argentina/Tucuman` | ✅ |
+| `stapp03` | `Etc/UTC` | `America/Argentina/Tucuman` | ✅ |
+
+## What I Learned
+- How to check the current timezone using `timedatectl`.
+- How to change the timezone with `timedatectl set-timezone`.
+- That Linux timezones use the `Region/City` naming format.
+- Why consistent timezones matter for logs, cron jobs, and troubleshooting across servers.
+
+## Personal Notes
+This task reinforced the importance of keeping server time settings aligned in multi-server environments. It also highlighted how small command typos, such as typing `timeanddatectl` instead of `timedatectl`, can stop progress until carefully reviewed.
+
+## Key Notes
+- `timedatectl set-timezone` updates the system timezone immediately and persists across reboots.
+- Available timezone names can be listed with `timedatectl list-timezones`. 
+- The timezone setting is implemented through the `/etc/localtime` link to the appropriate zoneinfo file. 
+- A value such as `-0300` means the local timezone is 3 hours behind UTC.

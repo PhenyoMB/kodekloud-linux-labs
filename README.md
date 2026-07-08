@@ -24,7 +24,7 @@ kodekloud-linux-labs/
 - [Day 2 - Group-Based Access Control](./linux-level-01/day-02-group-creation-and-user-assignment)
 - [Day 3 - Linux User Setup with Non-Interactive Shell](./linux-level-01/day-03-linux-user-setup-with-interactive-shell)
 - [Day 4 - Service User Creation without Home Directory](./linux-level-01/day-04-server-use-creation-without-home-directory)
-- [Day 5 - Temporary User Setup with Expiry](./linux-level-01day-05-temporary-user-setup-with-expiry)
+- [Day 5 - Temporary User Setup with Expiry](./linux-level-01/day-05-temporary-user-setup-with-expiry)
 - [Day 6 - Linux User Data Transfer](./linux-level-01day-06-linux-user-data-transfer)
 - [Day 7 - Secure Root SSH Access](./linux-level-01day-07-secure-root-ssh-access)
 - [Day 8 - Data Backup For Developer](./linux-level-01day-08-data-backup-for-developer)

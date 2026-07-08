@@ -31,12 +31,12 @@ kodekloud-linux-labs/
 - [Day 9 - Script Execution Permissions](./linux-level-01day-09-script-execution-permissions)
 - [Day 10 - File Permission Correction](./linux-level-01day-10-file-permission-correction)
 - [Day 11 - String Replacement](./linux-level-01day-11-string-replacement)
-- [Day 12 - String Replacement](./linux-level-01day-11-secure-data-transfer)
-- [Day 13 - String Replacement](./linux-level-01day-11-restrict-cron-access)
-- [Day 14 - String Replacement](./linux-level-01day-11-default-ui-boot-configuration)
-- [Day 15 - String Replacement](./linux-level-01day-11-timezone-alignment)
-- [Day 16 - String Replacement](./linux-level-01day-11-firewall-configuration)
-- [Day 17 - String Replacement](./linux-level-01day-11-process-limit-adjustment)
+- [Day 12 - Secure Data Transfer](./linux-level-01day-11-secure-data-transfer)
+- [Day 13 - Restrict Cron Access](./linux-level-01day-11-restrict-cron-access)
+- [Day 14 - Default UI Boot Configuration](./linux-level-01day-11-default-ui-boot-configuration)
+- [Day 15 - Timezone Alignment](./linux-level-01day-11-timezone-alignment)
+- [Day 16 - Firewall Configuration](./linux-level-01day-11-firewall-configuration)
+- [Day 17 - Process Limit Adjustment](./linux-level-01day-11-process-limit-adjustment)
 
 
 ## Documentation Format
